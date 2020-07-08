@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>Hola {{ username }} {{ course_name }}</h2>
+    <p>
+        El mensaje se encuentra dentro de un archivo .html
+    </p>
+
+    {% if is_premium %}
+    <p>
+        El curso es premium
+    </p>
+    {% else %}
+    <p>
+        El curso es gratis
+    </p>
+    {% endif %}
+
+    {% if courses %}
+    <ul>
+        {% for course in courses %}
+        <li> {{ course }} </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="">
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+{% endblock %}
+
